@@ -1,0 +1,76 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 54px;
+    width: 100vw;
+    padding: 0 16px;
+    box-sizing: border-box;
+    .start {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        .burger-button {
+            width: 48px;
+            margin-top: 6px;
+            margin-left: 8px;
+            .burger-button__icon {
+                width: 24px;
+                height: auto;
+                fill: white;
+            }
+        }
+        .youtube-icon {
+            margin-top: 1px;
+            width: 90px;
+            height: 20px;
+            fill: white;
+        }
+    }
+    .center {
+        .searcher {
+            display: flex;
+            align-items: center;
+            .searcher__input {
+                margin-left: 3px;
+                width: 573px;
+                height: 40px;
+                box-sizing: border-box;
+                background-color: hsl(0, 0%, 7.1%);
+                border: 1px solid hsl(0, 0%, 18.8%);
+                color: hsla(0, 100%, 100%, 0.88);
+                padding-left: 11px;
+                padding-bottom: 0px;
+                font-size: 16px;
+                margin-top: 2px;
+                font-family: 'Roboto','Noto',sans-serif;
+            }
+            .searcher__button {
+                width: 63px;
+                height: 40px;
+                background-color: hsl(0, 0%, 19.6%);
+                border: none;
+                margin-top: 2px;
+                cursor: pointer;
+                .seacher__icon {
+                    width: 24px;
+                    height: auto;
+                    fill: white;
+                    margin-top: 3px;
+                    margin-right: 1px;
+                }
+            }
+        }
+    }
+    .end {
+        display: flex;
+        justify-content: right;
+        width: 225px;
+        .user-avatar {
+            width: 24px;
+            height: 24px;
+            background-color: red;
+            border-radius: 3000px;
+        }
+    }
+}

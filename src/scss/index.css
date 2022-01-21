@@ -36,7 +36,6 @@ body .app-container {
 }
 
 .sidebar {
-  margin-top: 54px;
   width: 232px;
 }
 
@@ -153,6 +152,111 @@ body .app-container {
   background-color: red;
   width: 24px;
   height: 24px;
+  border-radius: 3000px;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 54px;
+  width: 100vw;
+  padding: 0 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.navbar .start {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.navbar .start .burger-button {
+  width: 48px;
+  margin-top: 6px;
+  margin-left: 8px;
+}
+
+.navbar .start .burger-button .burger-button__icon {
+  width: 24px;
+  height: auto;
+  fill: white;
+}
+
+.navbar .start .youtube-icon {
+  margin-top: 1px;
+  width: 90px;
+  height: 20px;
+  fill: white;
+}
+
+.navbar .center .searcher {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar .center .searcher .searcher__input {
+  margin-left: 3px;
+  width: 573px;
+  height: 40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #121212;
+  border: 1px solid #303030;
+  color: rgba(255, 255, 255, 0.88);
+  padding-left: 11px;
+  padding-bottom: 0px;
+  font-size: 16px;
+  margin-top: 2px;
+  font-family: 'Roboto','Noto',sans-serif;
+}
+
+.navbar .center .searcher .searcher__button {
+  width: 63px;
+  height: 40px;
+  background-color: #323232;
+  border: none;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.navbar .center .searcher .searcher__button .seacher__icon {
+  width: 24px;
+  height: auto;
+  fill: white;
+  margin-top: 3px;
+  margin-right: 1px;
+}
+
+.navbar .end {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  width: 225px;
+}
+
+.navbar .end .user-avatar {
+  width: 24px;
+  height: 24px;
+  background-color: red;
   border-radius: 3000px;
 }
 /*# sourceMappingURL=index.css.map */
