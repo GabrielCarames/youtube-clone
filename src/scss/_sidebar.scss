@@ -1,0 +1,91 @@
+.sidebar {
+    margin-top: 54px;
+    width: 232px;
+    .sections {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        box-sizing: border-box;
+        .primary {
+            border-bottom: 1px solid rgb(56, 56, 56);
+            height: 146px;
+            .list {
+                .list__link {
+                    &:nth-child(1) {
+                        background-color: rgb(56, 56, 56);
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+        .secundary {
+            margin-top: -2px;
+            border-bottom: 1px solid rgb(56, 56, 56);
+            height: 226px;
+        }
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            list-style: none;
+            padding-left: 0;
+            width: 100%;
+            .list__link {
+                width: 100%;
+                cursor: pointer;
+                padding-left: 24px;
+                box-sizing: border-box;
+                &:hover {
+                    background-color: rgb(56, 56, 56);
+                }
+                .list__item {
+                    display: flex;
+                    align-items: center;
+                    gap: 24px;
+                    height: 40px;
+                    &:nth-child(3) {
+                        margin-bottom: 10px;
+                    }
+                    .list__icon {
+                        width: 24px;
+                        height: auto;
+                        fill:white;
+                    }
+                    .list__title {
+                    }
+                }
+            }
+        }
+        .subscriptions {
+            margin-top: 2px;
+            .list {
+                display: flex;
+                flex-direction: column;
+                padding-left: 24px;
+                .list__title {
+                    color: #aaa;
+                    font-weight: 500;
+                    letter-spacing: .5px;
+                }
+                .list__link {
+                    padding-left: 0px;
+                    padding-top: 8px;
+                    .list__item {
+                        display: flex;
+                        gap: 24px;
+                        .list__avatar {
+                            background-color: red;
+                            width: 24px;
+                            height: 24px;
+                            border-radius: 3000px;
+                        }
+                        .list__name {
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
