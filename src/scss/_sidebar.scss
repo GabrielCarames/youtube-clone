@@ -1,6 +1,11 @@
 .sidebar {
     // margin-top: 54px;
     width: 232px;
+    height: 100%;
+    position: fixed;
+    top: 54px;
+    bottom: -120px;
+    left: 0;
     .sections {
         display: flex;
         flex-direction: column;
