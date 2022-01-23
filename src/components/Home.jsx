@@ -1,5 +1,9 @@
+import { useHome } from "../hooks/useHome"
+
 export default function Home() {
-  return (
+    const { } = useHome()
+
+    return (
     <div className="home">
         <ul className="list">
             <li className="list__item">
@@ -312,5 +316,5 @@ export default function Home() {
 
         </ul>
     </div>
-  )
+    )
 }
