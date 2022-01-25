@@ -5,7 +5,7 @@ export default function Sidebar() {
         <div className="sections">
             <div className="primary">
                 <ul className="list">
-                    <a className="list__link">
+                    <a className="list__link" href="/">
                         <li className="list__item">
                             <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M4,10V21h6V15h4v6h6V10L12,3Z"></path></g></svg> 
                             <span className="list__title">Inicio</span>

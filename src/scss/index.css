@@ -37,7 +37,6 @@ body .app-container {
 
 .home {
   background-color: #181818;
-  margin-top: 54px;
   margin-left: 232px;
   width: 100%;
   padding-top: 56px;
@@ -176,6 +175,8 @@ body .app-container {
   padding-left: 24px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  text-decoration: none;
+  color: white;
 }
 
 .sidebar .sections .list .list__link:hover {
@@ -349,5 +350,59 @@ body .app-container {
   height: 24px;
   background-color: red;
   border-radius: 3000px;
+}
+
+.categories {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 56px;
+  border-top: 1px solid #373737;
+  border-bottom: 1px solid #373737;
+  background-color: #202020;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.categories .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.categories .list .list__item {
+  color: white;
+  background-color: #373737;
+  border-radius: 16px;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 27px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 2px 15px;
+  border: 1px solid #4b4b4b;
+  border-radius: 16px;
+  cursor: pointer;
 }
 /*# sourceMappingURL=index.css.map */
