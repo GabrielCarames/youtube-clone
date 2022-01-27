@@ -6,6 +6,9 @@
     bottom: -120px;
     left: 0;
     background-color: #202020;
+    &.disable {
+        display: none;
+    }
     .sections {
         display: flex;
         flex-direction: column;

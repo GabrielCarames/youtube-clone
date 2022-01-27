@@ -1,0 +1,300 @@
+.video {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    background-color: #181818;
+    width: 100%;
+    padding-top: 80px;
+    box-sizing: border-box;
+    .left {
+        display: flex;
+        flex-direction: column;
+        width: 1280px;
+        .player {
+            width: 100%;
+            height: 720px;
+            background-color: red;
+        }
+        .video-info {
+            width: 100%;
+            height: 74px;
+            margin-top: 20px;
+            border-bottom: 1px solid #303030;
+            .title-container {
+                .video__title {
+                    font-size: 18px;
+                    font-weight: 400;
+                }
+            }
+            .info {
+                display: flex;
+                justify-content: space-between;
+                line-height: 3.2;
+                .statistics {
+                    color: #aaa;
+                    .views {
+                        
+                    }
+                    .date {
+
+                    }
+                }
+                .actions {
+                    display: flex;
+                    gap: 20px;
+                    height: 24px;
+                    margin-top: 12px;
+                    font-size: 14px;
+                    font-weight: 500;
+                    letter-spacing: .5px;
+                    padding-right: 6px;
+                    .likes {
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+                        fill: white;
+                        .likes__icon {
+                            width: 24px;
+                            height: 24px;
+    
+                        }
+                        .likes__data {
+                        }
+                    }
+                    .dislikes {
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+                        fill: white;
+                        .dislikes__icon {
+                            width: 24px;
+                            height: 24px;
+    
+                        }
+                        .dislikes__title {
+                            
+                        }
+                    }
+                }
+            }
+        }
+        .meta {
+            display: flex;
+            gap: 16px;
+            padding-top: 16px;
+            border-bottom: 1px solid #303030;
+            .channel-icon-container {
+                .channel-icon {
+                    width: 48px;
+                    height: auto;
+                    border-radius: 3000px;
+                }
+            }
+            .meta-info {
+                width: 100%;
+                height: 166px;
+                .channel-info {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    padding-top: 8px;
+                    .channel {
+                        display: flex;
+                        flex-direction: column;
+                        .channel__name {
+                            font-weight: 500;
+                        }
+                        .channel__suscribers {
+                            color: #aaa;
+                            font-size: 12px;
+                            line-height: 1.9;
+                        }
+                    }
+                    .channel-options {
+                        padding-right: 4px;
+                        .channel-options__suscribe {
+                            background-color: #c00;
+                            border: none;
+                            color: white;
+                            width: 128px;
+                            height: 37px;
+                            border-radius: 2px;
+                            font-size: 14px;
+                            font-weight: 500;
+                            letter-spacing: .5px;
+                            font-family: "Roboto", "Arial", sans-serif;
+                            margin-top: -1px;
+                            .channel-options__text {
+                                padding-left: 1px;
+                            }
+                        }
+                    }
+                }
+                .description {
+                    
+                }
+            }
+        }
+        .comments {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            margin-top: 25px;
+            .total-comments {
+                font-size: 16px;
+            }
+            .create-comment {
+                display: flex;
+                gap: 10px;
+                .user-icon {
+                    width: 40px;
+                    height: auto;
+                    border-radius: 3000px;
+                }
+                .create-comment__input {
+                    color: white;
+                    width: 100%;
+                    height: 25px;
+                    background-color: #181818;
+                    border: none;
+                    border-bottom: 1px solid #717171;
+                    outline: none;
+                    font-size: 14px;
+                    margin-top: -5px;
+                    margin-left: 5px;
+                    letter-spacing: .2px;
+                    padding-bottom: 2px;
+                }
+            }
+            .list {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                padding-left: 0;
+                margin-top: 32px;
+                list-style: none;
+                .list__item {
+                    display: flex;
+                    gap: 16px;
+                    .list__icon {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 3000px;
+                    }
+                    .data {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        margin-top: 3px;
+                        .data__channel {
+                            font-size: 13px;
+                            font-weight: 500;
+                            .data__timeago {
+                                font-weight: 300;
+                                font-size: 12px;
+                                color: #aaa;
+                                padding-left: 1px;
+                            }
+                        }
+                        .list__comment {
+                            margin-top: 3px;
+                        }
+                        .options {
+                            display: flex;
+                            gap: 16px;
+                            font-size: 12px;
+                            color: #aaa;
+                            margin-top: 9px;
+                            .like {
+                                display: flex;
+                                align-items: center;
+                                gap: 8px;
+                                .likes__icon {
+                                    width: 16px;
+                                    height: 16px;
+                                    fill: white;
+                                }
+                                .like__count {
+                                    
+                                }
+                            }
+                            .dislike {
+                                display: flex;
+                                .dislikes__icon {
+                                    width: 16px;
+                                    height: 16px;
+                                    fill: white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .right {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 402px;
+        .video-categories {
+            .list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                .list__item {
+                    display: flex;
+                    align-items: center;
+                    background-color: rgb(48, 48, 48);
+                    border: 1px solid rgb(67, 67, 67);
+                    padding: 6px 12.5px;
+                    width: max-content;
+                    border-radius: 16px;
+                    font-size: 14px;
+                    .list__category {
+                        margin-top: 1px;
+                        letter-spacing: .2px;
+                    }
+                }
+            }
+        }
+        .related-videos {
+            .list {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                list-style: none;
+                padding-left: 0;
+                .list__item {
+                    display: flex;
+                    gap: 8px;
+                    .list__thumbnail {
+                    
+                    }
+                    .data {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        width: 226px;
+                        .list__title {
+                            font-weight: 500;
+                            line-height: 1.5;
+                        }
+                        .list__channel-name {
+                            // margin-top: 5px;
+                            color: #aaa;
+                            font-size: 12px;
+                        }
+                        .list__meta {
+                            color: #aaa;
+                            font-size: 12px;
+                            line-height: 1.5;
+                            margin-top: -3px;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}

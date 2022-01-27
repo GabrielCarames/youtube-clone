@@ -23,11 +23,13 @@
                 fill: white;
             }
         }
-        .youtube-icon {
-            margin-top: 1px;
+        .youtube {
             width: 90px;
             height: 20px;
             fill: white;
+            .youtube-icon {
+                margin-top: 1px;
+            }
         }
     }
     .center {

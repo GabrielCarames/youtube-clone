@@ -1,4 +1,5 @@
 import { useHome } from "../hooks/useHome"
+import { Link } from "react-router-dom"
 import Categories from "./Categories"
 import Icon from "./Icon"
 
@@ -14,9 +15,9 @@ export default function Home() {
                 mostPopularVideos && mostPopularVideos.map((video, id) => {
                     return (
                         <li className="list__item" key={id}>
-                            <a className="list__link" href="">
+                            <Link className="list__link" to={`/watch/${video.id}`}>
                                 <img className="list__thumbnail" src={video.snippet.thumbnails.high.url} alt="thumbnail" />
-                            </a>
+                            </Link>
                             <div className="data">
                                 {/* <Icon id={video.snippet.channelId} /> */}
                                 <div className="details">
