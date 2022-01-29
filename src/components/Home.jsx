@@ -1,7 +1,7 @@
 import { useHome } from "../hooks/useHome"
 import { Link } from "react-router-dom"
 import Categories from "./Categories"
-import Icon from "./Icon"
+import Icon from "./promises/Icon"
 
 export default function Home() {
     const {mostPopularVideos, getCorrectTime, setMostPopularVideos, formatNumberWithDots} = useHome()

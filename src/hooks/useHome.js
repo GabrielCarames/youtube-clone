@@ -1975,7 +1975,8 @@ export const useHome = () => {
     }
 
     const reverseAndRemoveSFromString = (string) => {
-        return string.split("").reverse().join("").replace('s','').split("").reverse().join("")
+        if(string === ' meses') return ' mes'
+        else return string.split("").reverse().join("").replace('s','').split("").reverse().join("")
     }
 
     const formatNumberWithDots = (number) => {

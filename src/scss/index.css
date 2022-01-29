@@ -471,6 +471,10 @@ body .app-container {
   color: #aaa;
 }
 
+.video .left .video-info .info .statistics .views::after {
+  content: "• ";
+}
+
 .video .left .video-info .info .actions {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -774,7 +778,7 @@ body .app-container {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   list-style: none;
   padding-left: 0;
 }
@@ -784,6 +788,13 @@ body .app-container {
   display: -ms-flexbox;
   display: flex;
   gap: 8px;
+}
+
+.video .right .related-videos .list .list__item .list__thumbnail {
+  width: 168px;
+  height: 94px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .video .right .related-videos .list .list__item .data {
@@ -801,6 +812,12 @@ body .app-container {
 .video .right .related-videos .list .list__item .data .list__title {
   font-weight: 500;
   line-height: 1.5;
+  max-height: 42px;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  white-space: normal;
 }
 
 .video .right .related-videos .list .list__item .data .list__channel-name {
@@ -808,10 +825,12 @@ body .app-container {
   font-size: 12px;
 }
 
-.video .right .related-videos .list .list__item .data .list__meta {
+.video .right .related-videos .list .list__item .data .statistics {
   color: #aaa;
   font-size: 12px;
-  line-height: 1.5;
-  margin-top: -3px;
+}
+
+.video .right .related-videos .list .list__item .data .statistics .list__meta:after {
+  content: " • ";
 }
 /*# sourceMappingURL=index.css.map */
