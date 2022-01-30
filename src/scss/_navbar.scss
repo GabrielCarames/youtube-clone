@@ -84,3 +84,36 @@
         }
     }
 }
+
+@media screen and (min-width: 320px) and (max-width: 700px) {
+    .navbar {
+        .start {
+            &.disable {
+                display: none;
+            }
+        }
+        .center {
+            // display: flex;
+            width: 100%;
+            .searcher {
+                width: 100%;
+                justify-content: right;
+                .searcher__input {
+                    display: none;
+                    &.active {
+                        display: inline-block;
+                    }
+                }
+                .searcher__button {
+                    background-color: rgba(0, 0, 0, 0);
+                }
+            }
+        }
+        .end {
+            width: 24px;
+            &.disable {
+                display: none;
+            }
+        }
+    }
+}

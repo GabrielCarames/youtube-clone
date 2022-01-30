@@ -6,6 +6,7 @@ export default function Navbar() {
     const inputSearch = useRef()
     const history = useHistory()
     const [input, setInput] = useState(undefined);
+    const [showInput, setShowInput] = useState(false);
     const {expandSidebar, setExpandSidebar} = useContext(SidebarContext);
 
     useEffect(() => {
@@ -20,9 +21,15 @@ export default function Navbar() {
         };
     }, [input]);
 
+    const searchQuery = () => {
+        if(window.innerWidth >= 320 && window.innerWidth <= 700) {
+            showInput ? setShowInput(false) : setShowInput(true)
+        } else history.push(`/results/:${inputSearch.current.value}`)
+    }
+
     return (
         <div className="navbar">
-            <div className="start">
+            <div className={showInput ? "start disable" : "start"}>
                 <div className="burger-button" onClick={() => {expandSidebar ? setExpandSidebar(false) : setExpandSidebar(true)}}>
                     <svg className="burger-button__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M21,6H3V5h18V6z M21,11H3v1h18V11z M21,17H3v1h18V17z"></path></g></svg>
                 </div>
@@ -32,13 +39,13 @@ export default function Navbar() {
             </div>
             <div className="center">
                 <div className="searcher">
-                    <input className="searcher__input" type="text" placeholder="Buscar" value={input} ref={inputSearch} onChange={e => setInput(e.target.value)} />
-                    <button className="searcher__button" onClick={() => history.push(`/results/:${inputSearch.current.value}`)}>
+                    <input className={showInput ? "searcher__input active" : "searcher__input"} type="text" placeholder="Buscar" value={input} ref={inputSearch} onChange={e => setInput(e.target.value)} />
+                    <button className="searcher__button" onClick={() => searchQuery()}>
                         <svg className="seacher__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M20.87,20.17l-5.59-5.59C16.35,13.35,17,11.75,17,10c0-3.87-3.13-7-7-7s-7,3.13-7,7s3.13,7,7,7c1.75,0,3.35-0.65,4.58-1.71 l5.59,5.59L20.87,20.17z M10,16c-3.31,0-6-2.69-6-6s2.69-6,6-6s6,2.69,6,6S13.31,16,10,16z"></path></g></svg>
                     </button>
                 </div>
             </div>
-            <div className="end">
+            <div className={showInput ? "end disable" : "end"}>
                 <div className="user-avatar">
 
                 </div>

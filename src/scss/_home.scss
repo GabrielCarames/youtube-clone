@@ -123,3 +123,49 @@
         }
     }
 }
+
+@media screen and (min-width: 320px) and (max-width: 900px) {
+    .home {
+        &.left {
+            .categories {
+                .list {
+                    padding-left: 0;
+                    overflow-x: scroll;
+                    overflow-y: hidden;
+                    height: 50px;
+                    flex-wrap: nowrap;
+                    .list__item {
+                    }
+                }
+            }
+            .list {
+                padding-left: 0;
+                margin: 0;
+                justify-content: center;
+                .list__item {
+                    .list__link {
+                        .list__thumbnail {
+                        }
+                    }
+                    .data {
+                        .data__avatar {
+                        }
+                        .details {
+                            .data__title {
+                            }
+                            .metadata {
+                                .metadata__user-name {
+                                }
+                                .video-data {
+                                    .video-data__time-ago {
+    
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

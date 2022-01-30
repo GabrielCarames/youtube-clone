@@ -10,7 +10,7 @@ export default function Home() {
     const {expandSidebar} = useContext(SidebarContext);
 
     return (
-        <div className={expandSidebar ? "home right" : "home left"}>
+        <div className={window.innerWidth >= 320 && window.innerWidth <= 900 ? "home left" : expandSidebar ? "home right" : "home left"}>
             <Categories setMostPopularVideos={setMostPopularVideos} />
             {console.log("mostPopularVideos", mostPopularVideos)}
             <ul className="list">
