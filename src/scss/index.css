@@ -42,6 +42,77 @@ body .app-container {
   padding-top: 56px;
 }
 
+.home.left {
+  margin-left: 0px;
+}
+
+.home.left .categories .list {
+  padding-left: 100px;
+}
+
+.home.left .list .list__item {
+  width: 343.783px;
+}
+
+.home.left .list .list__item .list__link .list__thumbnail {
+  width: 100%;
+  height: 192.9px;
+}
+
+.home .categories {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 56px;
+  border-top: 1px solid #373737;
+  border-bottom: 1px solid #373737;
+  background-color: #202020;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.home .categories .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.home .categories .list .list__item {
+  color: white;
+  background-color: #373737;
+  border-radius: 16px;
+  text-decoration: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 27px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 2px 15px;
+  border: 1px solid #4b4b4b;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
 .home .list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -117,20 +188,20 @@ body .app-container {
 }
 
 .sidebar {
-  width: 232px;
   height: 100%;
   position: fixed;
   top: 54px;
   bottom: -120px;
   left: 0;
   background-color: #202020;
+  width: 72px;
 }
 
-.sidebar.disable {
-  display: none;
+.sidebar.expanded {
+  width: 232px;
 }
 
-.sidebar .sections {
+.sidebar.expanded .sections {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -143,23 +214,23 @@ body .app-container {
           box-sizing: border-box;
 }
 
-.sidebar .sections .primary {
+.sidebar.expanded .sections .primary {
   border-bottom: 1px solid #383838;
   height: 146px;
 }
 
-.sidebar .sections .primary .list .list__link:nth-child(1) {
+.sidebar.expanded .sections .primary .list .list__link:nth-child(1) {
   background-color: #383838;
   font-weight: 500;
 }
 
-.sidebar .sections .secundary {
+.sidebar.expanded .sections .secundary {
   margin-top: -2px;
   border-bottom: 1px solid #383838;
   height: 226px;
 }
 
-.sidebar .sections .list {
+.sidebar.expanded .sections .list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -173,7 +244,7 @@ body .app-container {
   width: 100%;
 }
 
-.sidebar .sections .list .list__link {
+.sidebar.expanded .sections .list .list__link {
   width: 100%;
   cursor: pointer;
   padding-left: 24px;
@@ -183,11 +254,11 @@ body .app-container {
   color: white;
 }
 
-.sidebar .sections .list .list__link:hover {
+.sidebar.expanded .sections .list .list__link:hover {
   background-color: #383838;
 }
 
-.sidebar .sections .list .list__link .list__item {
+.sidebar.expanded .sections .list .list__link .list__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -198,21 +269,21 @@ body .app-container {
   height: 40px;
 }
 
-.sidebar .sections .list .list__link .list__item:nth-child(3) {
+.sidebar.expanded .sections .list .list__link .list__item:nth-child(3) {
   margin-bottom: 10px;
 }
 
-.sidebar .sections .list .list__link .list__item .list__icon {
+.sidebar.expanded .sections .list .list__link .list__item .list__icon {
   width: 24px;
   height: auto;
   fill: white;
 }
 
-.sidebar .sections .subscriptions {
+.sidebar.expanded .sections .subscriptions {
   margin-top: 2px;
 }
 
-.sidebar .sections .subscriptions .list {
+.sidebar.expanded .sections .subscriptions .list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -223,29 +294,73 @@ body .app-container {
   padding-left: 24px;
 }
 
-.sidebar .sections .subscriptions .list .list__title {
+.sidebar.expanded .sections .subscriptions .list .list__title {
   color: #aaa;
   font-weight: 500;
   letter-spacing: .5px;
 }
 
-.sidebar .sections .subscriptions .list .list__link {
+.sidebar.expanded .sections .subscriptions .list .list__link {
   padding-left: 0px;
   padding-top: 8px;
 }
 
-.sidebar .sections .subscriptions .list .list__link .list__item {
+.sidebar.expanded .sections .subscriptions .list .list__link .list__item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 24px;
 }
 
-.sidebar .sections .subscriptions .list .list__link .list__item .list__avatar {
+.sidebar.expanded .sections .subscriptions .list .list__link .list__item .list__avatar {
   background-color: red;
   width: 24px;
   height: 24px;
   border-radius: 3000px;
+}
+
+.sidebar.contracted .sections .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-left: 0px;
+  gap: 22px;
+}
+
+.sidebar.contracted .sections .list .list__link {
+  padding-left: 0px;
+  padding-top: 8px;
+}
+
+.sidebar.contracted .sections .list .list__link .list__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 7px;
+  fill: white;
+  text-decoration: none;
+  color: white;
+}
+
+.sidebar.contracted .sections .list .list__link .list__item .list__icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 3000px;
+}
+
+.sidebar.contracted .sections .list .list__link .list__item .list__title {
+  font-size: 10px;
 }
 
 .navbar {
@@ -282,6 +397,7 @@ body .app-container {
   width: 48px;
   margin-top: 6px;
   margin-left: 8px;
+  cursor: pointer;
 }
 
 .navbar .start .burger-button .burger-button__icon {
@@ -362,60 +478,6 @@ body .app-container {
   height: 24px;
   background-color: red;
   border-radius: 3000px;
-}
-
-.categories {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  height: 56px;
-  border-top: 1px solid #373737;
-  border-bottom: 1px solid #373737;
-  background-color: #202020;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.categories .list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 10px;
-  list-style: none;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.categories .list .list__item {
-  color: white;
-  background-color: #373737;
-  border-radius: 16px;
-  text-decoration: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 27px;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  padding: 2px 15px;
-  border: 1px solid #4b4b4b;
-  border-radius: 16px;
-  cursor: pointer;
 }
 
 .video {
