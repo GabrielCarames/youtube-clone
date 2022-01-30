@@ -15,7 +15,7 @@ export const useVideo = () => {
         const navbar = document.querySelector('.sidebar')
         navbar.className = 'sidebar disable'
         getVideoById()
-    }, []);
+    }, [id]);
 
     const getVideoById = () => {
         axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2C%20statistics&id=${id}&key=${API_KEY}`).then((res) => {

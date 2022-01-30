@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useVideo } from "../hooks/useVideo"
 import { useHome } from "../hooks/useHome"
 import Visualizations from "./promises/Visualizations"
@@ -25,11 +25,10 @@ export default function Video() {
                 <iframe
                     width="1280"
                     height="720"
-                    src={`https://www.youtube.com/embed/${id}?&modestbranding=1`}
+                    src={`https://www.youtube.com/embed/${id}?&autoplay=1&mute=1&modestbranding=1`}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                    title="Embedded youtube"
                 />
                 </div>
                 <div className="video-info">
@@ -107,13 +106,6 @@ export default function Video() {
                 </div>
             </div>
             <div className="right">
-                <div className="video-categories">
-                    <ul className="list">
-                        <li className="list__item">
-                            <span className="list__category">Relacionados</span>
-                        </li>
-                    </ul>
-                </div>
                 <div className="related-videos">
                     <ul className="list">
                         {
@@ -121,15 +113,17 @@ export default function Video() {
                                 return (
                                     video.snippet && 
                                     <li className="list__item" key={id}>
-                                        <img className="list__thumbnail" src={video.snippet.thumbnails.high.url} alt="thumbnail" />
-                                        <div className="data">
-                                            <span className="list__title">{video.snippet.title}</span>
-                                            <span className="list__channel-name">{video.snippet.channelTitle}</span>
-                                            <div className="statistics">
-                                                <Visualizations id={video.id.videoId} />
-                                                <span className="list__timeago"> hace {getCorrectTime(video.snippet.publishedAt)}</span>
+                                        <Link className="list__link" to={`/watch/${video.id.videoId}`}>
+                                            <img className="list__thumbnail" src={video.snippet.thumbnails.high.url} alt="thumbnail" />
+                                            <div className="data">
+                                                <span className="list__title">{video.snippet.title}</span>
+                                                <span className="list__channel-name">{video.snippet.channelTitle}</span>
+                                                <div className="statistics">
+                                                    <Visualizations id={video.id.videoId} />
+                                                    <span className="list__timeago"> hace {getCorrectTime(video.snippet.publishedAt)}</span>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </Link>
                                     </li>
                                 )
                             })

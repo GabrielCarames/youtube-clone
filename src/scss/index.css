@@ -323,6 +323,11 @@ body .app-container {
   font-size: 16px;
   margin-top: 2px;
   font-family: 'Roboto','Noto',sans-serif;
+  outline: none;
+}
+
+.navbar .center .searcher .searcher__input:focus {
+  border: 1px solid #1C62B9;
 }
 
 .navbar .center .searcher .searcher__button {
@@ -818,23 +823,26 @@ body .app-container {
   gap: 10px;
   list-style: none;
   padding-left: 0;
+  margin-top: 0;
 }
 
-.video .right .related-videos .list .list__item {
+.video .right .related-videos .list .list__item .list__link {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 8px;
+  text-decoration: none;
+  color: white;
 }
 
-.video .right .related-videos .list .list__item .list__thumbnail {
+.video .right .related-videos .list .list__item .list__link .list__thumbnail {
   width: 168px;
   height: 94px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.video .right .related-videos .list .list__item .data {
+.video .right .related-videos .list .list__item .list__link .data {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -846,7 +854,7 @@ body .app-container {
   width: 226px;
 }
 
-.video .right .related-videos .list .list__item .data .list__title {
+.video .right .related-videos .list .list__item .list__link .data .list__title {
   font-weight: 500;
   line-height: 1.5;
   max-height: 42px;
@@ -857,17 +865,122 @@ body .app-container {
   white-space: normal;
 }
 
-.video .right .related-videos .list .list__item .data .list__channel-name {
+.video .right .related-videos .list .list__item .list__link .data .list__channel-name {
   color: #aaa;
   font-size: 12px;
 }
 
-.video .right .related-videos .list .list__item .data .statistics {
+.video .right .related-videos .list .list__item .list__link .data .statistics {
   color: #aaa;
   font-size: 12px;
 }
 
-.video .right .related-videos .list .list__item .data .statistics .list__meta:after {
+.video .right .related-videos .list .list__item .list__link .data .statistics .list__meta:after {
   content: " • ";
+}
+
+.search-results {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 24px;
+  background-color: #181818;
+  width: 100%;
+  padding-top: 125px;
+  padding-left: 524px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.search-results .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 17px;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  width: 1096px;
+}
+
+.search-results .list .list__item .list__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 15.5px;
+  text-decoration: none;
+  color: white;
+}
+
+.search-results .list .list__item .list__link .list__thumbnail {
+  min-width: 360px;
+  height: 202px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.search-results .list .list__item .list__link .data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5px;
+  margin-top: -.5px;
+}
+
+.search-results .list .list__item .list__link .data .list__title {
+  font-size: 18px;
+  line-height: 1.45;
+  max-height: 100px;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  white-space: normal;
+}
+
+.search-results .list .list__item .list__link .data .statistics {
+  color: #aaa;
+  font-size: 12px;
+  margin-top: -3px;
+  margin-bottom: 9px;
+}
+
+.search-results .list .list__item .list__link .data .statistics .list__meta:after {
+  content: " • ";
+}
+
+.search-results .list .list__item .list__link .data .channel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+}
+
+.search-results .list .list__item .list__link .data .channel .data__avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 3000px;
+}
+
+.search-results .list .list__item .list__link .data .channel .list__channel-name {
+  margin-top: 5px;
+  color: #aaa;
+  font-size: 12px;
+}
+
+.search-results .list .list__item .list__link .data .list__description {
+  color: #aaa;
+  font-size: 12px;
 }
 /*# sourceMappingURL=index.css.map */

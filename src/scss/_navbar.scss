@@ -49,6 +49,10 @@
                 font-size: 16px;
                 margin-top: 2px;
                 font-family: 'Roboto','Noto',sans-serif;
+                outline: none;
+                &:focus {
+                    border: 1px solid #1C62B9;
+                }
             }
             .searcher__button {
                 width: 63px;
