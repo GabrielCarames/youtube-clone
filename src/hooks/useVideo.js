@@ -54,6 +54,18 @@ export const useVideo = () => {
         console.log(new Date(date).getDate())
         return `${new Date(date).getDate()} ${days[new Date(date).getMonth()]} ${new Date(date).getFullYear()}`
     }
+    
 
-    return {video, channel, comments, relatedVideos, formatDate, visualizationsLoader}
+    const urlify = (className) => {
+        const descriptionText = className.current
+        if(descriptionText) {
+            var urlRegex = /(https?:\/\/[^\s]+)/g;
+            const formatedDescription = video.snippet.description.replace(urlRegex, function(url) {
+              return '<a href="' + url + '">' + url + '</a>';
+            })
+            descriptionText.innerHTML += formatedDescription
+        }
+    }
+
+    return {video, channel, comments, relatedVideos, formatDate, visualizationsLoader, urlify}
 };

@@ -2,12 +2,21 @@ import { useParams } from "react-router-dom"
 import { useVideo } from "../hooks/useVideo"
 import { useHome } from "../hooks/useHome"
 import Visualizations from "./promises/Visualizations"
+import { useEffect, useRef, useState } from "react"
 
 export default function Video() {
     const { id } = useParams()
-    const {video, channel, comments, relatedVideos, formatDate, visualizationsLoader} = useVideo()
+    const [expandDescription, setExpandDescription] = useState(false);
+    const {video, channel, comments, relatedVideos, formatDate, visualizationsLoader, urlify} = useVideo()
     const {formatNumberWithDots, getCorrectTime} = useHome()
+    const descriptionText = useRef()
     console.log("id", id)
+
+    useEffect(() => {
+        video && channel && comments && relatedVideos && urlify(descriptionText)
+    }, [video, channel, comments, relatedVideos])
+    
+
     return (
         video && channel && comments && relatedVideos ?
         <div className="video">
@@ -48,7 +57,7 @@ export default function Video() {
                     <div className="channel-icon-container">
                         <img className="channel-icon" src={channel.snippet.thumbnails.high.url} alt="channelIcon" />
                     </div>
-                    <div className="meta-info">
+                    <div className={expandDescription ? "meta-info expanded" : "meta-info"}>
                         <div className="channel-info">
                             <div className="channel">
                                 <span className="channel__name">{channel.snippet.title}</span>
@@ -61,7 +70,8 @@ export default function Video() {
                             </div>
                         </div>
                         <div className="description">
-
+                            <p ref={descriptionText} className={expandDescription ? "description__text expanded" : "description__text"}></p> 
+                            <button className="description__button" onClick={() => {expandDescription ? setExpandDescription(false) : setExpandDescription(true)}}>{expandDescription ? 'MOSTRAR MENOS' : 'MOSTRAR MÁS'}</button>
                         </div>
                     </div>
                 </div>

@@ -540,6 +540,12 @@ body .app-container {
   height: 166px;
 }
 
+.video .left .meta .meta-info.expanded {
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+}
+
 .video .left .meta .meta-info .channel-info {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -591,6 +597,38 @@ body .app-container {
 
 .video .left .meta .meta-info .channel-info .channel-options .channel-options__suscribe .channel-options__text {
   padding-left: 1px;
+}
+
+.video .left .meta .meta-info .description {
+  white-space: pre-wrap;
+}
+
+.video .left .meta .meta-info .description .description__text {
+  max-height: 50px;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.video .left .meta .meta-info .description .description__text.expanded {
+  max-height: -webkit-min-content;
+  max-height: -moz-min-content;
+  max-height: min-content;
+}
+
+.video .left .meta .meta-info .description .description__text a {
+  color: #3ea6ff;
+}
+
+.video .left .meta .meta-info .description .description__button {
+  cursor: pointer;
+  margin-bottom: 20px;
+  border: none;
+  background-color: rgba(170, 170, 170, 0);
+  color: #aaa;
+  font-family: "Roboto","Arial",sans-serif;
+  font-size: 12px;
+  padding: 0;
 }
 
 .video .left .comments {
@@ -647,7 +685,6 @@ body .app-container {
           flex-direction: column;
   gap: 20px;
   padding-left: 0;
-  margin-top: 32px;
   list-style: none;
 }
 
