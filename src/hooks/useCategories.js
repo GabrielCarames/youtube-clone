@@ -13,7 +13,7 @@ export const useCategories = (setMostPopularVideos) => {
 
     const getCategories = async () => {
         const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/videoCategories?part=snippet&hl=es_AR&regionCode=ar&key=${API_KEY}`)
-        console.log("timedasd", res.data.items)
+        console.log("categorias", res.data.items)
         setCategories(res.data.items)
     }
 
