@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useContext, useEffect, useRef, useState } from "react"
 import { useHistory } from "react-router-dom"
 import SidebarContext from "../contexts/SidebarContext";
@@ -8,7 +9,7 @@ export default function Navbar() {
     const [input, setInput] = useState(undefined);
     const [showInput, setShowInput] = useState(false);
     const {expandSidebar, setExpandSidebar} = useContext(SidebarContext);
-
+ 
     useEffect(() => {
         const listener = event => {
             if (event.code === "Enter" || event.code === "NumpadEnter") {

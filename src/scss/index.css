@@ -195,6 +195,14 @@ body .app-container {
     height: 50px;
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .home.left .categories .list .list__item .list__category {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
   }
   .home.left .list {
     padding-left: 0;

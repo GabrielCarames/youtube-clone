@@ -32,19 +32,26 @@ export const useHome = () => {
             initializeApp(firebaseConfig)
             authentication()
         }
+        // window.location.href = 'https://accounts.google.com/o/oauth2/auth?client_id=1083580781763-6a8bpfo37mcbfha1kjvj8g26ugrou7bu.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost&scope=https://www.googleapis.com/auth/youtube&response_type=token'
         getHomeData()
     }, []);
 
     const authentication = async () => {
         const auth = getAuth()
         const provider = new GoogleAuthProvider()
+        provider.addScope('https://www.googleapis.com/auth/youtube')
         signInWithPopup(auth, provider)
-        .then((result) => {
+        .then(async (result) => {
+            console.log("result", result)
             const credential = GoogleAuthProvider.credentialFromResult(result)
-            const token = credential.accessToken
+            const accessToken = credential.accessToken
             const user = result.user
+            console.log("credential", credential)
             console.log("user", user)
-            localStorage.setItem('userLogged', JSON.stringify(user))
+            localStorage.setItem('accessToken', accessToken)
+            // await axios.get('https://accounts.google.com/o/oauth2/auth?client_id=1083580781763-6a8bpfo37mcbfha1kjvj8g26ugrou7bu.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost&scope=https://www.googleapis.com/auth/youtube&response_type=token')
+            // console.log("CONSOLE:LOG")
+            // getChannelFromUserLogged(user)
             getHomeData()
         }).catch((error) => {
             if (error.code === 'auth/popup-closed-by-user') {
@@ -1956,6 +1963,12 @@ export const useHome = () => {
     const getHomeData = async () => {
         const mostPopularVideosList = await getMostPopularVideos()
         setMostPopularVideos(mostPopularVideosList)
+    }
+
+    const getChannelFromUserLogged = async (user) => { // Aún lo de dí uso, está acá por las dudas en un futuro
+        const channel = await axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&mine=true&access_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImMxMGM5MGJhNGMzNjYzNTE2ZTA3MDdkMGU5YTg5NDgxMDYyODUxNTgiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiRmluaXN0ZXJpeCIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHaFZEVW01ZlVCRkpPSjRUcmZfTS1RUWNVNXh4V1ZyekVVNFh1VnFCZz1zOTYtYyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS95b3V0dWJlLWNsb25lLTMzOTAxOCIsImF1ZCI6InlvdXR1YmUtY2xvbmUtMzM5MDE4IiwiYXV0aF90aW1lIjoxNjQzNjYzNzE0LCJ1c2VyX2lkIjoieEtRZ1JNd0RIN1NpVUVTSVFhMTgxaGU4V3d2MiIsInN1YiI6InhLUWdSTXdESDdTaVVFU0lRYTE4MWhlOFd3djIiLCJpYXQiOjE2NDM2NjM3MTQsImV4cCI6MTY0MzY2NzMxNCwiZW1haWwiOiJib2NhZ2FieTFAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZ29vZ2xlLmNvbSI6WyIxMTQyNzQxMjA4MTQ4MzM4NjQ2MzYiXSwiZW1haWwiOlsiYm9jYWdhYnkxQGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6Imdvb2dsZS5jb20ifX0.Bz3L9qM23rG9D4REcd-8t5wZ-wet4yPhJ0XPzUsZ7pd52WdHdEKXNBH_jXcef4UfzKSdAdUY6NHe2xOJlBe5s_NOlsWtNYcd7cNaGVmkjIZv93wwF9umC_61m59jG_s0EgP5ROjypCtUYp4wG5ojnyMAVzV_uDpBVXn9zOnzob6QbQfEbr56wzmHpR_46pn26bsV2L6TX9hcw5GaSeRvhaQ1JUQ9Z7p5FjQGnqusuqwKPEvvWvfD6Y45wkE1HcTAS_ywN9njGKa0oIekU5imZq_VTh-xgeeoTVZQDG0aujBi7hbfDDDynGZinM2w8uiCxKRo4O-9XpXg-vQhj2ZsqQ&key=${API_KEY}`)
+        console.log("channel", channel)
+        localStorage.setItem('userChannel', JSON.stringify(channel))
     }
 
     const getCorrectTime = (time) => {

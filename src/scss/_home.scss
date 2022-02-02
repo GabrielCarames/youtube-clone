@@ -134,7 +134,11 @@
                     overflow-y: hidden;
                     height: 50px;
                     flex-wrap: nowrap;
+                    justify-content: flex-start;
                     .list__item {
+                        .list__category {
+                            width: max-content;
+                        }
                     }
                 }
             }

@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import SidebarContext from "../contexts/SidebarContext";
+import { useSidebar } from "../hooks/useSidebar";
 
 export default function Sidebar() {
-    const {expandSidebar} = useContext(SidebarContext);
+    const {expandSidebar} = useContext(SidebarContext)
+    const {suscriptions} = useSidebar()
 
     return (
         <div className={expandSidebar ? "sidebar expanded" : "sidebar contracted"}>
@@ -70,10 +72,16 @@ export default function Sidebar() {
                             <ul className="list">
                                 <span className="list__title">SUSCRIPCIONES</span>
                                 <a className="list__link">
-                                    <li className="list__item">
-                                        <div className="list__avatar"></div>
-                                        <span className="list__name">eldanber X</span>
-                                    </li>
+                                    {
+                                        suscriptions && suscriptions.map((suscription, id) => {
+                                            return (
+                                                <li className="list__item" key={id}>
+                                                    <img className="list__avatar" src={suscription.snippet.thumbnails.high.url} alt="avatar" />
+                                                    <span className="list__name">{suscription.snippet.title}</span>
+                                                </li>
+                                            )
+                                        })
+                                    }
                                 </a>
                             </ul>
                         </div>
