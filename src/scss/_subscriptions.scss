@@ -1,0 +1,96 @@
+.subscriptions-videos {
+    display: flex;
+    gap: 24px;
+    background-color: #181818;
+    width: 100%;
+    padding-top: 74px;
+    padding-left: 430px;
+    box-sizing: border-box;
+    .list {
+        display: flex;
+        flex-direction: column;
+        gap: 17px;
+        list-style: none;
+        padding-left: 0;
+        margin-top: 0;
+        width: 862px;
+        .list__item {
+            padding-bottom: 24px;
+            border-bottom: 1px solid #303030;
+            .list__link {
+                display: flex;
+                flex-direction: column;
+                gap: 18px;
+                text-decoration: none;
+                color: white;
+                .channel {
+                    display: flex;
+                    align-items: center;
+                    gap: 7.5px;
+                    .data__avatar {
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 3000px;
+                    }
+                    .list__channel-name {
+                        font-size: 16px;
+                        font-weight: 500;
+                    }
+                }
+                .video {
+                    display: flex;
+                    gap: 15.5px;
+                    padding: 0;
+                    .list__thumbnail {
+                        min-width: 246px;
+                        height: 138px;
+                        object-fit: cover;
+                    }
+                    .data {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        margin-top: -.5px;
+                        .list__title {
+                            font-size: 18px;
+                            line-height: 1.45;
+                            max-height: 100px;
+                            overflow: hidden;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                            display: -webkit-box;
+                            white-space: normal;
+                        }
+                        .statistics {
+                            color: #aaa;
+                            font-size: 12px;
+                            margin-top: -3px;
+                            margin-bottom: 9px;
+                            .list__channel-name {
+                                font-size: 12px;
+                                &:after {
+                                    content: " • ";
+                                }
+                            }
+                            .list__meta {
+                            }
+                            .list__timeago {
+                                
+                            }
+                        }
+                        .list__description {
+                            color: #aaa;
+                            font-size: 12px;
+                            max-height: 42px;
+                            overflow: hidden;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                            display: -webkit-box;
+                            white-space: normal;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

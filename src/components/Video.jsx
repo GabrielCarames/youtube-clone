@@ -21,7 +21,6 @@ export default function Video() {
         video && channel && comments && relatedVideos ?
         <div className="video">
             <div className="left">
-                <div className="player">
                 <iframe
                     width="1280"
                     height="720"
@@ -29,8 +28,8 @@ export default function Video() {
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    className="player"
                 />
-                </div>
                 <div className="video-info">
                     <div className="title-container">
                         <span className="video__title">{video.snippet.localized.title}</span>

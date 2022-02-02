@@ -8,13 +8,15 @@ export const useSearchResults = () => {
     const query = useParams()
 
     useEffect(() => {
-        searchQuery()
+        const previousQuery = localStorage.getItem('query')
+        if(previousQuery !== query.query) searchQuery()
     }, [query]);
     
 
     const searchQuery = async () => {
         await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${query.query}&regionCode=ar&key=${API_KEY}`).then((res) => {
             console.log("search", res)
+            localStorage.setItem('query', query.query)
             setSearchResults(res.data.items)
         })
     }

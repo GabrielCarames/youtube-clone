@@ -5,7 +5,6 @@ import Icon from "./promises/Icon"
 import Visualizations from "./promises/Visualizations"
 
 export default function SearchResults() {
-
     const {searchResults} = useSearchResults()
     const {getCorrectTime} = useHome()
 
@@ -14,7 +13,6 @@ export default function SearchResults() {
             <ul className="list">
                 {
                     searchResults && searchResults.map((result, id) => {
-                        {console.log("reuslts", searchResults)}
                         return (
                             <li className="list__item" key={id}>
                                 <Link className="list__link" to={`/watch/${result.id.videoId}`}>

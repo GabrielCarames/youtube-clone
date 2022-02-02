@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import SidebarContext from "../contexts/SidebarContext";
+import SubscriptionsContext from "../contexts/SubscriptionsContext";
 import { useSidebar } from "../hooks/useSidebar";
 
 export default function Sidebar() {
     const {expandSidebar} = useContext(SidebarContext)
-    const {suscriptions} = useSidebar()
+    const {subscriptions} = useContext(SubscriptionsContext)
+    useSidebar()
 
     return (
         <div className={expandSidebar ? "sidebar expanded" : "sidebar contracted"}>
@@ -26,7 +28,7 @@ export default function Sidebar() {
                                         <span className="list__title">Explorar</span>
                                     </li>
                                 </a>
-                                <a className="list__link">
+                                <a className="list__link" href="/feed/subscriptions">
                                     <li className="list__item">
                                         <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10,18v-6l5,3L10,18z M17,3H7v1h10V3z M20,6H4v1h16V6z M22,9H2v12h20V9z M3,10h18v10H3V10z"></path></g></svg>                    
                                         <span className="list__title">Suscripciones</span>
@@ -72,12 +74,12 @@ export default function Sidebar() {
                             <ul className="list">
                                 <span className="list__title">SUSCRIPCIONES</span>
                                     {
-                                        suscriptions && suscriptions.map((suscription, id) => {
+                                        subscriptions && subscriptions.map((subscription, id) => {
                                             return (
                                                 <a className="list__link" key={id}>
                                                     <li className="list__item">
-                                                        <img className="list__avatar" src={suscription.snippet.thumbnails.high.url} alt="avatar" />
-                                                        <span className="list__name">{suscription.snippet.title}</span>
+                                                        <img className="list__avatar" src={subscription.snippet.thumbnails.high.url} alt="avatar" />
+                                                        <span className="list__name">{subscription.snippet.title}</span>
                                                     </li>
                                                 </a>
                                             )

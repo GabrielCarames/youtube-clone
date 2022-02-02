@@ -78,3 +78,21 @@
         }
     }
 }
+
+@media screen and (min-width: 320px) and (max-width: 899px) {
+    .search-results {
+        padding-left: 0;
+        padding-top: 80px;
+        .list {
+            .list__item {
+                .list__link {
+                    flex-direction: column;
+                    .data {
+                        padding: 10px;
+                        box-sizing: border-box;
+                    }
+                }
+            }
+        }
+    }
+}
