@@ -71,18 +71,18 @@ export default function Sidebar() {
                         <div className="subscriptions">
                             <ul className="list">
                                 <span className="list__title">SUSCRIPCIONES</span>
-                                <a className="list__link">
                                     {
                                         suscriptions && suscriptions.map((suscription, id) => {
                                             return (
-                                                <li className="list__item" key={id}>
-                                                    <img className="list__avatar" src={suscription.snippet.thumbnails.high.url} alt="avatar" />
-                                                    <span className="list__name">{suscription.snippet.title}</span>
-                                                </li>
+                                                <a className="list__link" key={id}>
+                                                    <li className="list__item">
+                                                        <img className="list__avatar" src={suscription.snippet.thumbnails.high.url} alt="avatar" />
+                                                        <span className="list__name">{suscription.snippet.title}</span>
+                                                    </li>
+                                                </a>
                                             )
                                         })
                                     }
-                                </a>
                             </ul>
                         </div>
                     </div>

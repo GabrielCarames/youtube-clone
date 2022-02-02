@@ -321,18 +321,23 @@ body .app-container {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-left: 24px;
+  gap: 4px;
+  overflow-y: auto;
+  height: 500px;
 }
 
 .sidebar.expanded .sections .subscriptions .list .list__title {
   color: #aaa;
   font-weight: 500;
   letter-spacing: .5px;
+  padding-left: 24px;
 }
 
 .sidebar.expanded .sections .subscriptions .list .list__link {
   padding-left: 0px;
-  padding-top: 8px;
+  padding-left: 24px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .sidebar.expanded .sections .subscriptions .list .list__link .list__item {

@@ -27,8 +27,11 @@ export const useHome = () => {
     };
     
     useEffect(() => {
-        initializeApp(firebaseConfig)
-        authentication()
+        const accessToken = localStorage.getItem('accessToken')
+        if(!accessToken) {
+            initializeApp(firebaseConfig)
+            authentication()
+        } else getHomeData()
     }, []);
 
     const authentication = async () => {
