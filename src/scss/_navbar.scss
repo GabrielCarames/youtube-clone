@@ -77,10 +77,51 @@
         justify-content: right;
         width: 225px;
         .user-avatar {
-            width: 24px;
-            height: 24px;
-            background-color: red;
+            width: 32px;
+            height: 32px;
             border-radius: 3000px;
+            margin-right: 31px;
+            margin-top: 1px;
+            cursor: pointer;
+        }
+    }
+    .menu {
+        display: none;
+        &.active {
+            display: inline-block;
+            position: absolute;
+            background-color: #212121;
+            border: 1px solid rgb(54, 54, 54);
+            margin-top: 120px;
+            right: 40px;
+            .list {
+                display: flex;
+                align-items: center;
+                width: 300px;
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+                height: 50px;
+                .list__item {
+                    padding-left: 20px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    width: 100%;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: #373737;
+                    }
+                    .list__icon {
+                        width: 24px;
+                        height: 24px;
+                        fill: white;
+                    }
+                    .list__title {
+    
+                    }
+                }
+            }
         }
     }
 }
@@ -113,6 +154,9 @@
             width: 24px;
             &.disable {
                 display: none;
+            }
+            .user-avatar {
+                margin-right: 0;
             }
         }
     }

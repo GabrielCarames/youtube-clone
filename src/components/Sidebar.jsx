@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import SidebarContext from "../contexts/SidebarContext";
 import SubscriptionsContext from "../contexts/SubscriptionsContext";
 import { useSidebar } from "../hooks/useSidebar";
@@ -7,6 +7,7 @@ export default function Sidebar() {
     const {expandSidebar} = useContext(SidebarContext)
     const {subscriptions} = useContext(SubscriptionsContext)
     useSidebar()
+    const pathname = window.location.pathname
 
     return (
         <div className={expandSidebar ? "sidebar expanded" : "sidebar contracted"}>
@@ -16,7 +17,7 @@ export default function Sidebar() {
                     <div className="sections">
                         <div className="primary">
                             <ul className="list">
-                                <a className="list__link" href="/">
+                                <a className={pathname.includes("subscriptions") ? "list__link" : "list__link active"} href="/">
                                     <li className="list__item">
                                         <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M4,10V21h6V15h4v6h6V10L12,3Z"></path></g></svg> 
                                         <span className="list__title">Inicio</span>
@@ -28,7 +29,7 @@ export default function Sidebar() {
                                         <span className="list__title">Explorar</span>
                                     </li>
                                 </a>
-                                <a className="list__link" href="/feed/subscriptions">
+                                <a className={pathname.includes("subscriptions") ? "list__link active" : "list__link"} href="/feed/subscriptions">
                                     <li className="list__item">
                                         <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10,18v-6l5,3L10,18z M17,3H7v1h10V3z M20,6H4v1h16V6z M22,9H2v12h20V9z M3,10h18v10H3V10z"></path></g></svg>                    
                                         <span className="list__title">Suscripciones</span>

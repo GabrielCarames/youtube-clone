@@ -23,6 +23,13 @@ body {
         // flex-direction: column;
         min-height: 100%;
         height: min-content;
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%
+        }
     }
 }
 

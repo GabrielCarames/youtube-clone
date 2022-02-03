@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithRedirect, GoogleAuthProvider, getRedirectResult } from "firebase/auth";
+import { getAuth, signInWithRedirect, GoogleAuthProvider, getRedirectResult, browserLocalPersistence, setPersistence, signOut } from "firebase/auth";
 import axios from "axios";
 
 export const useHome = () => {
@@ -25,6 +25,21 @@ export const useHome = () => {
         minute: 60,
         second: 1
     };
+
+    // const accessToken = localStorage.getItem('accessToken')
+
+    // useEffect(() => {
+    //     if (!accessToken) return
+    //     const interval = setInterval(() => {
+    //         const refreshToken = userLogged.refreshToken
+    //         axios.post("/refresh", {refreshToken}).then(res => {
+    //             const userLogged = JSON.parse(localStorage.getItem('userLogged'))
+    //             const userLogginData = {"accessToken": res.data.accessToken, "refreshToken": userLogged.refreshToken, "expiresIn": res.data.expiresIn}
+    //             localStorage.setItem('userLogged', JSON.stringify(userLogginData))
+    //         }).catch(() => {window.location = "/"})
+    //     }, (userLogged.expiresIn - 60) * 1000)
+    //     return () => clearInterval(interval)
+    // }, [accessToken])
     
     useEffect(() => {
         const accessToken = localStorage.getItem('accessToken')
@@ -39,18 +54,29 @@ export const useHome = () => {
         getRedirectResult(auth).then((result) => {
             console.log("reulst", result)
             if(!result) {
-                const provider = new GoogleAuthProvider()
-                provider.addScope('https://www.googleapis.com/auth/youtube')
-                signInWithRedirect(auth, provider)
+                setPersistence(auth, browserLocalPersistence).then(() => {
+                    const provider = new GoogleAuthProvider()
+                    provider.addScope('https://www.googleapis.com/auth/youtube')
+                    return signInWithRedirect(auth, provider)
+                })
             } else {
                 console.log("loginData", result)
                 const credential = GoogleAuthProvider.credentialFromResult(result)
                 const accessToken = credential.accessToken
+                const user = result.user
+                // const authenticationToken = {accessToken: result._tokenResponse.oauthAccessToken, tokenExpireIn: result._tokenResponse.oauthExpireIn}
                 console.log("credential", credential)
                 localStorage.setItem('accessToken', accessToken)
+                localStorage.setItem('userLogged', JSON.stringify(user))
                 getHomeData()
             }
         })
+    }
+
+    const singOut = () => {
+        initializeApp(firebaseConfig)
+        const auth = getAuth();
+        signOut(auth)
     }
 
     const getMostPopularVideos = async () => {
@@ -1945,9 +1971,9 @@ export const useHome = () => {
             }
           ]
         try {
-            // const mostPopularVideosList = await axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2C%20statistics&chart=mostPopular&maxResults=30&regionCode=ar&videoCategoryId=17&key=${API_KEY}`)
-            // return mostPopularVideosList.data.items
-            return objetoparanogastarticketsxd
+            const mostPopularVideosList = await axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2C%20statistics&chart=mostPopular&maxResults=30&regionCode=ar&videoCategoryId=17&key=${API_KEY}`)
+            return mostPopularVideosList.data.items
+            // return objetoparanogastarticketsxd
         } catch (error) {
             console.log("err", error) 
         }
@@ -1988,5 +2014,5 @@ export const useHome = () => {
         else return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
     }
 
-    return { mostPopularVideos, getCorrectTime, setMostPopularVideos, formatNumberWithDots }
+    return { mostPopularVideos, getCorrectTime, setMostPopularVideos, formatNumberWithDots, singOut }
 };

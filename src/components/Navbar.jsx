@@ -2,14 +2,18 @@ import axios from "axios";
 import { useContext, useEffect, useRef, useState } from "react"
 import { useHistory } from "react-router-dom"
 import SidebarContext from "../contexts/SidebarContext";
+import { useHome } from "../hooks/useHome";
 
 export default function Navbar() {
     const inputSearch = useRef()
     const history = useHistory()
+    const {singOut} = useHome()
     const [input, setInput] = useState(undefined);
     const [showInput, setShowInput] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
     const {expandSidebar, setExpandSidebar} = useContext(SidebarContext);
- 
+    const userLogged = JSON.parse(localStorage.getItem('userLogged'))
+
     useEffect(() => {
         const listener = event => {
             if (event.code === "Enter" || event.code === "NumpadEnter") {
@@ -27,6 +31,8 @@ export default function Navbar() {
             showInput ? setShowInput(false) : setShowInput(true)
         } else history.push(`/results/:${inputSearch.current.value}`)
     }
+
+    
 
     return (
         <div className="navbar">
@@ -46,10 +52,16 @@ export default function Navbar() {
                     </button>
                 </div>
             </div>
-            <div className={showInput ? "end disable" : "end"}>
-                <div className="user-avatar">
-
-                </div>
+            <div className={showInput ? "end disable" : "end"} onClick={() => showMenu ? setShowMenu(false) : setShowMenu(true)}>
+                <img className="user-avatar" src={userLogged && userLogged.photoURL} alt="avatar" />
+            </div>
+            <div className={showMenu ? "menu active" : "menu"}>
+                <ul className="list">
+                    <li className="list__item" onClick={() => singOut()}>
+                        <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M20,3v18H8v-1h11V4H8V3H20z M11.1,15.1l0.7,0.7l4.4-4.4l-4.4-4.4l-0.7,0.7l3.1,3.1H3v1h11.3L11.1,15.1z"></path></g></svg>
+                        <span className="list__title">Cerrar sesión</span>
+                    </li>
+                </ul>
             </div>
         </div>
   )

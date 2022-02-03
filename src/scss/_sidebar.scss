@@ -21,7 +21,7 @@
                 height: 146px;
                 .list {
                     .list__link {
-                        &:nth-child(1) {
+                        &.active {
                             background-color: rgb(56, 56, 56);
                             font-weight: 500;
                         }

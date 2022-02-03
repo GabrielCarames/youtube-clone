@@ -14,7 +14,6 @@ export default function Visualizations({id}) {
 
     const getVisualizationsFromVideoById = async (id) => {
         const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2C%20statistics&id=${id}&key=${API_KEY}`)
-        console.log("visualizations", res.data.items[0])
         return res.data.items[0]
     }
 
