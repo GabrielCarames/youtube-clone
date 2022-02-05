@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 export const useSearchResults = () => {
     const [searchResults, setSearchResults] = useState();
@@ -15,7 +15,6 @@ export const useSearchResults = () => {
 
     const searchQuery = async () => {
         await axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${query.query}&regionCode=ar&key=${API_KEY}`).then((res) => {
-            console.log("search", res)
             localStorage.setItem('query', query.query)
             setSearchResults(res.data.items)
         })

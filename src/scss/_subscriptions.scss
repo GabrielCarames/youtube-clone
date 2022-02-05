@@ -78,9 +78,6 @@
                                     content: " • ";
                                 }
                             }
-                            .list__timeago {
-                                
-                            }
                         }
                         .list__description {
                             color: #aaa;
@@ -113,7 +110,6 @@
                     }
                     .video {
                         .list__thumbnail {
-                            // max-width: 246px;
                             height: auto;
                         }
                         .data {
@@ -134,16 +130,10 @@
             width: 100%;
             .list__item {
                 .list__link {
-                    .channel {
-                    }
                     .video {
                         display: flex;
                         flex-direction: row;
                         width: 100%;
-                        .list__thumbnail {
-                        }
-                        .data {
-                        }
                     }
                 }
             }

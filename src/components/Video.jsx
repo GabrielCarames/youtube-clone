@@ -7,10 +7,9 @@ import { useEffect, useRef, useState } from "react"
 export default function Video() {
     const { id } = useParams()
     const [expandDescription, setExpandDescription] = useState(false);
-    const {video, channel, comments, relatedVideos, formatDate, visualizationsLoader, urlify} = useVideo()
+    const {video, channel, comments, relatedVideos, formatDate, urlify} = useVideo()
     const {formatNumberWithDots, getCorrectTime} = useHome()
     const descriptionText = useRef()
-    console.log("id", id)
 
     useEffect(() => {
         video && channel && comments && relatedVideos && urlify(descriptionText)

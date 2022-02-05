@@ -24,7 +24,6 @@ export const useSubscriptions = () => {
         subscriptionMergedArray.sort(function(a,b){
             return new Date(b.snippet.publishedAt) - new Date(a.snippet.publishedAt);
         });
-        console.log("subscriptionsVideosArray", subscriptionMergedArray)
         setSubscriptionsVideos(subscriptionMergedArray)
     }
 

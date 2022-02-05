@@ -1,21 +1,26 @@
 import { useEffect, useState } from "react";
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithRedirect, GoogleAuthProvider, inMemoryPersistence, onAuthStateChanged, getRedirectResult, setPersistence, signOut } from "firebase/auth";
-import axios from "axios";
 import { useSidebar } from "./useSidebar";
+import axios from "axios";
 
 export const useHome = () => {
     const [mostPopularVideos, setMostPopularVideos] = useState();
     const {getSuscriptionsFromUserLogged} = useSidebar()
     const API_KEY = import.meta.env.VITE_API_KEY
+    const AUTH_DOMAIN = import.meta.env.VITE_AUTH_DOMAIN
+    const PROJECT_ID = import.meta.env.VITE_PROJECT_ID
+    const STORAGE_BUCKET = import.meta.env.VITE_STORAGE_BUCKET
+    const MESSAGING_SENDER_ID = import.meta.env.VITE_MESSAGING_SENDER_ID
+    const APP_ID = import.meta.env.VITE_MESSAGING_APP_ID
 
     const firebaseConfig = {
-      apiKey: "AIzaSyB8NupBhoXT8uiqBdCrqrpKO5vaAJLayKU",
-      authDomain: "clone-339018.firebaseapp.com",
-      projectId: "youtube-clone-339018",
-      storageBucket: "youtube-clone-339018.appspot.com",
-      messagingSenderId: "1083580781763",
-      appId: "1:1083580781763:web:f5b9360201314055d83e76"
+        apiKey: API_KEY,
+        authDomain: AUTH_DOMAIN,
+        projectId: PROJECT_ID,
+        storageBucket: STORAGE_BUCKET,
+        messagingSenderId: MESSAGING_SENDER_ID,
+        appId: APP_ID
     };
     
     useEffect(() => {
@@ -23,12 +28,9 @@ export const useHome = () => {
         const auth = getAuth()
         onAuthStateChanged(auth, (user)=>{
             if(user){
-                console.log("user", user)
                 getRedirectResult(auth).then((result) => {
-                    console.log("result", result)
                     if(result) {
                         const credential = GoogleAuthProvider.credentialFromResult(result)
-                        console.log("credential", credential)
                         const accessToken = credential.accessToken
                         const user = result.user
                         localStorage.setItem('accessToken', accessToken)
@@ -114,5 +116,5 @@ export const useHome = () => {
         else return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
     }
 
-    return { mostPopularVideos, getCorrectTime, setMostPopularVideos, formatNumberWithDots, singOut }
+    return {mostPopularVideos, getCorrectTime, setMostPopularVideos, formatNumberWithDots, singOut}
 };

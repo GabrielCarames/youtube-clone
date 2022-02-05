@@ -36,9 +36,6 @@
                             content: "• ";
                         }
                     }
-                    .date {
-
-                    }
                 }
                 .actions {
                     display: flex;
@@ -59,8 +56,6 @@
                             height: 24px;
     
                         }
-                        .likes__data {
-                        }
                     }
                     .dislikes {
                         display: flex;
@@ -71,9 +66,6 @@
                             width: 24px;
                             height: 24px;
     
-                        }
-                        .dislikes__title {
-                            
                         }
                     }
                 }
@@ -221,9 +213,6 @@
                                 padding-left: 1px;
                             }
                         }
-                        .list__comment {
-                            margin-top: 3px;
-                        }
                         .options {
                             display: flex;
                             gap: 16px;
@@ -238,9 +227,6 @@
                                     width: 16px;
                                     height: 16px;
                                     fill: white;
-                                }
-                                .like__count {
-                                    
                                 }
                             }
                             .dislike {
@@ -318,7 +304,6 @@
                                 white-space: normal;
                             }
                             .list__channel-name {
-                                // margin-top: 5px;
                                 color: #aaa;
                                 font-size: 12px;
                             }
@@ -329,9 +314,6 @@
                                     &:after {
                                         content: " • ";
                                     }
-                                }
-                                .list__timeago {
-                                    
                                 }
                             }
                         }

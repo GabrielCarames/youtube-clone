@@ -936,10 +936,6 @@ body .app-container .loader {
   padding-left: 1px;
 }
 
-.video .left .comments .list .list__item .data .list__comment {
-  margin-top: 3px;
-}
-
 .video .left .comments .list .list__item .data .options {
   display: -webkit-box;
   display: -ms-flexbox;
