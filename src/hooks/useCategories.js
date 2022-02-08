@@ -3,7 +3,6 @@ import axios from "axios";
 
 export const useCategories = (setMostPopularVideos) => {
     const [categories, setCategories] = useState();
-
     const API_KEY = import.meta.env.VITE_API_KEY
 
     useEffect(() => {

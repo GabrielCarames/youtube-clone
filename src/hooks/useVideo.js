@@ -38,7 +38,7 @@ export const useVideo = () => {
     }
 
     const getRelatedVideos = (id) => {
-        axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&relatedToVideoId=${id}Q&type=video&key=${API_KEY}`).then((res) => {
+        axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&relatedToVideoId=${id}&type=video&key=${API_KEY}`).then((res) => {
             setRelatedVideos(res.data.items)
         })
     }

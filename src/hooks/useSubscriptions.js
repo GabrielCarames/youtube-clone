@@ -3,7 +3,7 @@ import SubscriptionsContext from "../contexts/SubscriptionsContext";
 import axios from "axios";
 
 export const useSubscriptions = () => {
-    const [subscriptionsVideos, setSubscriptionsVideos] = useState([]);
+    const [subscriptionsVideos, setSubscriptionsVideos] = useState([])
     const {subscriptions} = useContext(SubscriptionsContext)
     const API_KEY = import.meta.env.VITE_API_KEY
 
@@ -14,17 +14,19 @@ export const useSubscriptions = () => {
     let subscriptionsVideosArray = []
 
     const getSubscriptionsVideos = async () => {
-        const subscriptionsRawArray = await Promise.all(
-            subscriptions.map(async (subscription) => {
-                const items = await getSubscriptions(subscription.snippet.resourceId.channelId)
-                return subscriptionsVideosArray.concat.apply(subscriptionsVideosArray, items)
-            })
-        )
-        const subscriptionMergedArray = [].concat.apply([], subscriptionsRawArray)
-        subscriptionMergedArray.sort(function(a,b){
-            return new Date(b.snippet.publishedAt) - new Date(a.snippet.publishedAt);
-        });
-        setSubscriptionsVideos(subscriptionMergedArray)
+        if(subscriptionsVideos.length === 0) {
+            const subscriptionsRawArray = await Promise.all(
+                subscriptions.map(async (subscription) => {
+                    const items = await getSubscriptions(subscription.snippet.resourceId.channelId)
+                    return subscriptionsVideosArray.concat.apply(subscriptionsVideosArray, items)
+                })
+            )
+            const subscriptionMergedArray = [].concat.apply([], subscriptionsRawArray)
+            subscriptionMergedArray.sort(function(a,b){
+                return new Date(b.snippet.publishedAt) - new Date(a.snippet.publishedAt);
+            });
+            setSubscriptionsVideos(subscriptionMergedArray)
+        }
     }
 
     const getSubscriptions = async (channelId) => {

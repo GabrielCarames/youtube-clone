@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithRedirect, GoogleAuthProvider, inMemoryPersistence, onAuthStateChanged, getRedirectResult, setPersistence, signOut } from "firebase/auth";
+import { initializeApp } from 'firebase/app';
 import { useSidebar } from "./useSidebar";
 import axios from "axios";
 
 export const useHome = () => {
-    const [mostPopularVideos, setMostPopularVideos] = useState();
+    const [mostPopularVideos, setMostPopularVideos] = useState()
     const {getSuscriptionsFromUserLogged} = useSidebar()
     const API_KEY = import.meta.env.VITE_API_KEY
     const AUTH_DOMAIN = import.meta.env.VITE_AUTH_DOMAIN

@@ -1,18 +1,25 @@
-import { Link } from "react-router-dom"
-import { useHome } from "../hooks/useHome"
-import { useSubscriptions } from "../hooks/useSubscriptions"
-import Icon from "./promises/Icon"
-import Visualizations from "./promises/Visualizations"
+import { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useHome } from "../hooks/useHome";
+import { useSubscriptions } from "../hooks/useSubscriptions";
+import CurrentSectionContext from "../contexts/CurrentSectionContext";
+import Visualizations from "./promises/Visualizations";
 import Loader from "react-loader-spinner";
+import Icon from "./promises/Icon";
 
 export default function Subscriptions() {
     const {subscriptionsVideos} = useSubscriptions()
     const {getCorrectTime} = useHome()
+    const {setCurrentSection} = useContext(CurrentSectionContext)
+
+    useEffect(() => {
+        setCurrentSection('subscriptions')
+    }, []);
 
     return (
         <div className="subscriptions-videos">
             {
-                subscriptionsVideos ? 
+                subscriptionsVideos.length >= 1 ? 
                     <ul className="list">
                         {
                             subscriptionsVideos.map((videos, id) => {

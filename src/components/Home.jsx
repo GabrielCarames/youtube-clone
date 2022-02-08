@@ -1,14 +1,20 @@
-import { useHome } from "../hooks/useHome"
-import { Link } from "react-router-dom"
-import Categories from "./Categories"
-import Icon from "./promises/Icon"
-import { useContext } from "react"
-import SidebarContext from "../contexts/SidebarContext"
+import { useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useHome } from "../hooks/useHome";
+import CurrentSectionContext from "../contexts/CurrentSectionContext";
+import SidebarContext from "../contexts/SidebarContext";
 import Loader from "react-loader-spinner";
+import Categories from "./Categories";
+import Icon from "./promises/Icon";
 
 export default function Home() {
     const {mostPopularVideos, getCorrectTime, setMostPopularVideos, formatNumberWithDots} = useHome()
-    const {expandSidebar} = useContext(SidebarContext);
+    const {setCurrentSection} = useContext(CurrentSectionContext)
+    const {expandSidebar} = useContext(SidebarContext)
+
+    useEffect(() => {
+        setCurrentSection('home')
+    }, []);
 
     return (
         <div className={window.innerWidth >= 320 && window.innerWidth <= 900 ? "home left" : expandSidebar ? "home right" : "home left"}>

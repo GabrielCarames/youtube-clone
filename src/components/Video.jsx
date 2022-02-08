@@ -1,15 +1,15 @@
-import { useParams, Link } from "react-router-dom"
-import { useVideo } from "../hooks/useVideo"
-import { useHome } from "../hooks/useHome"
-import Visualizations from "./promises/Visualizations"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { useVideo } from "../hooks/useVideo";
+import { useHome } from "../hooks/useHome";
+import Visualizations from "./promises/Visualizations";
 
 export default function Video() {
-    const { id } = useParams()
     const [expandDescription, setExpandDescription] = useState(false);
     const {video, channel, comments, relatedVideos, formatDate, urlify} = useVideo()
     const {formatNumberWithDots, getCorrectTime} = useHome()
     const descriptionText = useRef()
+    const { id } = useParams()
 
     useEffect(() => {
         video && channel && comments && relatedVideos && urlify(descriptionText)
