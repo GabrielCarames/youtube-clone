@@ -1,5 +1,5 @@
 # Youtube clone
-A simple Youtube clone with its most relevant features. All the youtube data is retrieved by [Youtube API v3](https://developers.google.com/youtube/v3)
+A simple Youtube clone with its most relevant features. All youtube data is retrieved by [Youtube API v3](https://developers.google.com/youtube/v3)
 
 <br />
 
