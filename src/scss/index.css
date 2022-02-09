@@ -385,6 +385,12 @@ body .app-container .loader {
   padding-top: 8px;
 }
 
+.sidebar.contracted .sections .list .list__link.active {
+  background-color: #383838;
+  font-weight: 500;
+  fill: white;
+}
+
 .sidebar.contracted .sections .list .list__link .list__item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -622,6 +628,12 @@ body .app-container .loader {
   }
   .navbar .end .user-avatar {
     margin-right: 0;
+  }
+  .navbar .menu.active {
+    right: 0px;
+  }
+  .navbar .menu.active .list {
+    width: 200px;
   }
 }
 

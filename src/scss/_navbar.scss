@@ -155,5 +155,15 @@
                 margin-right: 0;
             }
         }
+        .menu {
+            &.active {
+                right: 0px;
+                .list {
+                    width: 200px;
+                    .list__item {
+                    }
+                }
+            }
+        }
     }
 }

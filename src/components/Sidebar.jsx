@@ -21,7 +21,11 @@ export default function Sidebar() {
                             <ul className="list">
                                 <Link className={currentSection === 'subscriptions' ? "list__link" : "list__link active"} to={`/`}>
                                     <li className="list__item">
-                                        <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M4,10V21h6V15h4v6h6V10L12,3Z"></path></g></svg> 
+                                        {
+                                            currentSection === 'subscriptions'
+                                            ? <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M12,4.33l7,6.12V20H15V14H9v6H5V10.45l7-6.12M12,3,4,10V21h6V15h4v6h6V10L12,3Z"></path></g></svg>
+                                            : <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M4,10V21h6V15h4v6h6V10L12,3Z"></path></g></svg>
+                                        }
                                         <span className="list__title">Inicio</span>
                                     </li>
                                 </Link>
@@ -33,7 +37,11 @@ export default function Sidebar() {
                                 </a>
                                 <Link className={currentSection === 'subscriptions' ? "list__link active" : "list__link"} to={`/feed/subscriptions`}>
                                     <li className="list__item">
-                                        <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10,18v-6l5,3L10,18z M17,3H7v1h10V3z M20,6H4v1h16V6z M22,9H2v12h20V9z M3,10h18v10H3V10z"></path></g></svg>                    
+                                        {
+                                            currentSection === 'subscriptions'
+                                            ? <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M20,7H4V6h16V7z M22,9v12H2V9H22z M15,15l-5-3v6L15,15z M17,3H7v1h10V3z"></path></g></svg>
+                                            : <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10,18v-6l5,3L10,18z M17,3H7v1h10V3z M20,6H4v1h16V6z M22,9H2v12h20V9z M3,10h18v10H3V10z"></path></g></svg>
+                                        }
                                         <span className="list__title">Suscripciones</span>
                                     </li>
                                 </Link>
@@ -94,24 +102,32 @@ export default function Sidebar() {
                 :
                     <div className="sections">
                         <ul className="list">
-                            <a className="list__link" href="/">
+                            <Link className={currentSection === 'subscriptions' ? "list__link" : "list__link active"} to={`/`}>
                                 <li className="list__item">
-                                    <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M4,10V21h6V15h4v6h6V10L12,3Z"></path></g></svg> 
+                                    {
+                                        currentSection === 'subscriptions'
+                                        ? <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M12,4.33l7,6.12V20H15V14H9v6H5V10.45l7-6.12M12,3,4,10V21h6V15h4v6h6V10L12,3Z"></path></g></svg>
+                                        : <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M4,10V21h6V15h4v6h6V10L12,3Z"></path></g></svg>
+                                    }
                                     <span className="list__title">Inicio</span>
                                 </li>
-                            </a>
-                            <a className="list__link">
-                                    <li className="list__item">
-                                        <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M9.8,9.8l-3.83,8.23l8.23-3.83l3.83-8.23L9.8,9.8z M13.08,12.77c-0.21,0.29-0.51,0.48-0.86,0.54 c-0.07,0.01-0.15,0.02-0.22,0.02c-0.28,0-0.54-0.08-0.77-0.25c-0.29-0.21-0.48-0.51-0.54-0.86c-0.06-0.35,0.02-0.71,0.23-0.99 c0.21-0.29,0.51-0.48,0.86-0.54c0.35-0.06,0.7,0.02,0.99,0.23c0.29,0.21,0.48,0.51,0.54,0.86C13.37,12.13,13.29,12.48,13.08,12.77z M12,3c4.96,0,9,4.04,9,9s-4.04,9-9,9s-9-4.04-9-9S7.04,3,12,3 M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2 L12,2z"></path></g></svg>                    
-                                        <span className="list__title">Explorar</span>
-                                    </li>
-                            </a>
+                            </Link>
                             <a className="list__link">
                                 <li className="list__item">
-                                    <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10,18v-6l5,3L10,18z M17,3H7v1h10V3z M20,6H4v1h16V6z M22,9H2v12h20V9z M3,10h18v10H3V10z"></path></g></svg>                    
-                                    <span className="list__title">Suscripciones</span>
+                                    <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M9.8,9.8l-3.83,8.23l8.23-3.83l3.83-8.23L9.8,9.8z M13.08,12.77c-0.21,0.29-0.51,0.48-0.86,0.54 c-0.07,0.01-0.15,0.02-0.22,0.02c-0.28,0-0.54-0.08-0.77-0.25c-0.29-0.21-0.48-0.51-0.54-0.86c-0.06-0.35,0.02-0.71,0.23-0.99 c0.21-0.29,0.51-0.48,0.86-0.54c0.35-0.06,0.7,0.02,0.99,0.23c0.29,0.21,0.48,0.51,0.54,0.86C13.37,12.13,13.29,12.48,13.08,12.77z M12,3c4.96,0,9,4.04,9,9s-4.04,9-9,9s-9-4.04-9-9S7.04,3,12,3 M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2 L12,2z"></path></g></svg>                    
+                                    <span className="list__title">Explorar</span>
                                 </li>
                             </a>
+                            <Link className={currentSection === 'subscriptions' ? "list__link active" : "list__link"} to={`/feed/subscriptions`}>
+                                <li className="list__item">
+                                    {
+                                        currentSection === 'subscriptions'
+                                        ? <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M20,7H4V6h16V7z M22,9v12H2V9H22z M15,15l-5-3v6L15,15z M17,3H7v1h10V3z"></path></g></svg>
+                                        : <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M10,18v-6l5,3L10,18z M17,3H7v1h10V3z M20,6H4v1h16V6z M22,9H2v12h20V9z M3,10h18v10H3V10z"></path></g></svg>
+                                    }                    
+                                    <span className="list__title">Suscripciones</span>
+                                </li>
+                            </Link>
                             <a className="list__link">
                                 <li className="list__item">
                                     <svg className="list__icon" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false"><g><path d="M11,7l6,3.5L11,14V7L11,7z M18,20H4V6H3v15h15V20z M21,18H6V3h15V18z M7,17h13V4H7V17z"></path></g></svg>                            

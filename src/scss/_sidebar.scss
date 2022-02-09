@@ -109,6 +109,11 @@
                 .list__link {
                     padding-left: 0px;
                     padding-top: 8px;
+                    &.active {
+                        background-color: rgb(56, 56, 56);
+                        font-weight: 500;
+                        fill: white;
+                    }
                     .list__item {
                         display: flex;
                         flex-direction: column;
